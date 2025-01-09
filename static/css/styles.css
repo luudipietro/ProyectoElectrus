@@ -1,0 +1,76 @@
+:root {
+    --primary-green: #4CAF50; /* Color verde del logo */
+    --white: #FFFFFF;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--primary-green), var(--white));
+    color: var(--primary-green);
+}
+
+.navbar {
+    background-color: var(--primary-green);
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--white) !important;
+}
+.monoton-regular {
+  font-family: "Monoton", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-link:hover {
+    color: #d4f8d4 !important;
+}
+
+.hero {
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.btn-primary {
+    background-color: var(--white);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+.carousel-inner .carousel-item {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 18rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    filter: invert(1);
+}
+
+footer {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
