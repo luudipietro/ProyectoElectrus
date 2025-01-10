@@ -19,6 +19,16 @@ body {
 .navbar-brand img{
     max-height: 3.5rem;
 }
+
+
+.dropdown-item:hover{
+    background-color: var(--primary-green) !important;
+    color: var(--white) !important;
+}
+.dropdown-toggle:focus{
+    background-color: var(--white) !important;
+    color: var(--primary-green) !important;
+}
 .monoton-regular {
   font-family: "Monoton", serif;
   font-weight: 400;
@@ -51,11 +61,14 @@ body {
 .hero h1 {
     font-size: 2.5rem;
 }
+.contactos h2{
+    color: var(--white) !important;
+}
 
 .btn-primary {
-    background-color: var(--white);
-    color: var(--primary-green);
-    border: 2px solid var(--primary-green);
+    background-color: transparent !important;
+    color: var(--white) !important;
+    border: 2px solid var(--white) !important;
 }
 
 .btn-primary:hover {
@@ -63,26 +76,16 @@ body {
     color: var(--white);
 }
 
-.carousel-inner{
-    width: 100%
+
+.contactos{
+    background-color: var(--primary-green);
 }
 
-.card {
-    width: 18rem;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 2rem 6rem;
-}
 
-.card img {
-    max-height: 200px;
-    object-fit: cover;
-}
 
-.carousel-control-prev,
-.carousel-control-next {
-    filter: invert(1);
-}
+
+
+
 
 footer {
     background-color: var(--primary-green);

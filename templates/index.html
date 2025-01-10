@@ -22,6 +22,7 @@
             <img src="../static/img/logo_fondo_invisible.png" alt="Electrus" class="img-fluid">
         </a>
 
+
         <!-- Botón para colapsar en pantallas pequeñas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,26 +32,48 @@
         <!-- Contenido del navbar -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Formulario centrado -->
-            <form class="d-flex mx-auto flex-grow-1 justify-content-center my-3 px-3" role="search" style="max-width: 700px;">
+            <form class="d-flex ms-auto" role="search" >
                 <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar">
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
 
             <!-- Botones a la derecha -->
-            <ul class="navbar-nav ms-auto px-3">
+            <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
+
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Productos
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><button class="dropdown-item" type="button">Action</button></li>
+                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Mi Cuenta
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><button class="dropdown-item" type="button">Action</button></li>
+                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+
 
 <!-- Hero Section -->
 <div class="hero">
@@ -59,70 +82,32 @@
     <a href="#" class="btn btn-primary mt-3">Ver Productos</a>
 </div>
 
-<div class="container mt-5">
-    <div id="productosCarrusel" class="carousel slide" data-bs-ride="carousel">
-        <!-- Indicadores -->
-        <div class="carousel-indicators">
-            {% for i in range((productos|length // 3) + (1 if productos|length % 3 > 0 else 0)) %}
-                <button type="button" data-bs-target="#productosCarrusel" data-bs-slide-to="{{ i }}" {% if i == 0 %}class="active"{% endif %}></button>
-            {% endfor %}
-        </div>
 
-        <!-- Carrusel de cards -->
-        <div class="carousel-inner">
-            {% for i in range(productos|length // 3 + (1 if productos|length % 3 else 0)) %}
-                <div class="carousel-item {% if i == 0 %}active{% endif %}">
-                    <div class="row">
-                        {% for j in range(3) %}
-                            {% set producto = productos[i * 3 + j] if (i * 3 + j) < productos|length else None %}
-                            {% if producto %}
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="../static/img/productos/{{ producto['imagen'] }}" class="card-img-top" alt="{{ producto['nombre'] }}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ producto['nombre'] }}</h5>
-                                            <p class="card-text">{{ producto['descripcion'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-            <!-- Controles -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#productosCarrusel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#productosCarrusel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
-        </div>
-  </div>
 
 
 <!-- Formulario de Contacto -->
 <div class="contact-section">
-    <div class="container">
+    <div class="container contactos">
         <h2 class="text-center">Contáctanos</h2>
         <form action="#" method="post" class="mt-4">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
+            <div class="form-floating py-2">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido" required/>
+                <label for="nombre">Nombre y Apellido</label>
+
+             </div>
+            <div class="form-floating py-2">
+                <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required/>
+                <label for="email">Correo Electronico</label>
+
+             </div>
+            <div class="form-floating py-2">
+                <textarea class="form-control" id="message" name="message" placeholder="Mensaje" style="height: 100px" required></textarea>
                 <label for="message" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+             </div>
+
+                 <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary py-2 px-5 my-2">Enviar</button>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 </div>
