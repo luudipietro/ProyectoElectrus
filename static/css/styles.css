@@ -16,15 +16,31 @@ body {
 .nav-link {
     color: var(--white) !important;
 }
+.navbar-brand img{
+    max-height: 3.5rem;
+}
 .monoton-regular {
   font-family: "Monoton", serif;
   font-weight: 400;
+  font-size:2.5rem;
   font-style: normal;
 }
 
+
+/* Cuando el navbar NO está colapsado */
 .nav-link:hover {
-    color: #d4f8d4 !important;
+    background-color: var(--white) !important;
+    color: #238f39 !important;
 }
+
+/* Cuando el navbar está colapsado */
+@media(max-width:991px){
+.navbar-collapse.show .nav-link:hover {
+    background-color: transparent !important;
+    color: #238f39 !important;
+}
+}
+
 
 .hero {
     color: var(--white);
@@ -47,16 +63,15 @@ body {
     color: var(--white);
 }
 
-.carousel-inner .carousel-item {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.carousel-inner{
+    width: 100%
 }
 
 .card {
     width: 18rem;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem 6rem;
 }
 
 .card img {
