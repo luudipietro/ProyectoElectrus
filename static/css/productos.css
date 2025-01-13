@@ -57,3 +57,32 @@ footer {
     color: var(--white);
 }
 
+/* Configuración base */
+.contenedor-categorias {
+    position: relative;
+    max-width: 300px; /* Ajusta según el diseño */
+}
+
+.collapse {
+    transition: height 0.4s ease; /* Aumenta el tiempo a 1.2 segundos */
+    height: 0; /* Altura inicial colapsada */
+    overflow: hidden; /* Oculta contenido */
+}
+
+.collapse.show {
+    height: auto; /* Altura automática al expandir */
+    overflow: visible; /* Muestra contenido */
+}
+
+.list-group-item {
+    transition: all 0.4s ease; /* Ajusta la duración para movimientos generales */
+}
+
+button {
+    transition: transform 0.4s ease, margin 0.4s ease; /* Suaviza el movimiento y los márgenes */
+}
+
+button[aria-expanded="true"] .arrow {
+    transform: rotate(180deg); /* Gira la flecha hacia arriba */
+    transition: 0.4s linear;
+}

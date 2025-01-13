@@ -1,3 +1,5 @@
+from idlelib.debugobj_r import remote_object_tree_item
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -15,6 +17,19 @@ def inicio():
     return render_template('index.html', productos=productos)
 @app.route('/productos')
 def productos():
-    return render_template('productos.html')
+    categorias = [
+        {"id":1, "nombre":"Línea Blanca"},
+        {"id": 2, "nombre": "Pequeños Electrodomésticos"},
+        {"id": 3, "nombre": "Cuidado Personal"},
+        {"id": 4, "nombre": "Pequeños"},
+        {"id": 5, "nombre": "gramdes"},
+        {"id": 6, "nombre": "tuvi"},
+        {"id": 7, "nombre": "yeña"},
+
+    ]
+    return render_template('productos.html', categorias=categorias)
+@app.route('/colapsable')
+def colapsable():
+    return render_template('components/base.html')
 if __name__ == '__main__':
     app.run(debug=True)
