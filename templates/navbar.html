@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid"> <!-- container ocupa ancho fijo, container-fluid toda la pantalla-->
+        <!-- Brand a la izquierda -->
+        <a class="navbar-brand me-auto px-3" href="#">
+            <img src="../static/img/logo_fondo_invisible.png" alt="Electrus" class="img-fluid">
+        </a>
+
+
+        <!-- Botón para colapsar en pantallas pequeñas -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenido del navbar -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Formulario centrado -->
+            <form class="d-flex ms-auto" role="search" >
+                <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+
+            <!-- Botones a la derecha -->
+            <ul class="navbar-nav ms-auto ">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Productos
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><button class="dropdown-item" type="button">Action</button></li>
+                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Mi Cuenta
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><button class="dropdown-item" type="button">Action</button></li>
+                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

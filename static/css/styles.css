@@ -6,6 +6,8 @@
 body {
     background: linear-gradient(to bottom, var(--primary-green), var(--white));
     color: var(--primary-green);
+    padding-top: 58px; /* Ajusta este valor según la altura del navbar */
+
 }
 
 .navbar {
@@ -49,21 +51,85 @@ body {
     background-color: transparent !important;
     color: #238f39 !important;
 }
+body{
+    padding-top:100px
+}
 }
 
 
-.hero {
-    color: var(--white);
-    padding: 60px 20px;
-    text-align: center;
+
+.container-boton{
+    background-color: #2e6329;
+    border: 1px solid #fff;
+    position: fixed;
+    z-index: 999;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 25px;
+    padding: 12px;
+    transition: ease 0.3s;
+    animation: efecto 1.2s infinite;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
+.container-boton:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
 }
+.banner-container {
+    position: relative;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    overflow: hidden; /* Evita que desborde */
+}
+
+.boton{
+    width: 3rem;
+    transition: ease 1s;
+}
+
 .contactos h2{
     color: var(--white) !important;
 }
+.container-productos button{
+    transition: ease 0.3s;
+    font-size:1.2rem;
+}
+.container-productos button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+
+.container-carousel{
+    width:25rem;
+}
+
+.container-titulo{
+    display:flex;
+    justify-content: space-between;
+    padding-bottom:2rem;
+}
+.contenedor-cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+    padding-bottom:2rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color:black;
+    opacity: 0.35;
+}
+
+.card-body{
+display: flex;
+flex-direction: column;
+
+}
+
+
 
 .btn-primary {
     background-color: transparent !important;
@@ -84,8 +150,25 @@ body {
 
 
 
+.social-media{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+    padding:4rem 0;
 
+}
+.social-media i {
+    font-size: 2rem; /* Cambia este valor para agrandar/reducir los íconos */
+    margin: 0 15px; /* Espacio entre los íconos */
+    color: #000; /* Cambia el color si es necesario */
+    transition: transform 0.3s; /* Animación al pasar el mouse */
+}
 
+.social-media i:hover {
+    transform: scale(1.2); /* Agranda los íconos al pasar el mouse */
+    color: var(--primary-green); /* Cambia el color al pasar el mouse (opcional) */
+}
 
 footer {
     background-color: var(--primary-green);
