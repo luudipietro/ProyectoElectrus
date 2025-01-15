@@ -4,7 +4,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, var(--primary-green), var(--white));
+    background-color: var(--white));
     color: var(--primary-green);
     padding-top: 1rem; /* Ajusta este valor según la altura del navbar */
 

@@ -22,13 +22,13 @@
 <!-- Navbar -->
 {% include 'navbar.html'%}
 
-<div class="container contenedor-grande">
+<div class="container-fluid contenedor-grande">
     <div class="contenedor-categorias">
-        <ul class="list-group">
+        <ul >
             {% for categoria in categorias %}
-            <li class="list-group-item">
+            <li class="list-group-item categoria">
                 <button
-                    class="btn btn-primary w-100 text-start"
+                    class="btn p-0 fw-semibold text-start"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#categoria-{{categoria.id}}"
@@ -41,10 +41,10 @@
 
                 </button>
                 <div class="collapse-categorias" id="categoria-{{categoria.id}}">
-                    <ul class="list-group mt-2">
-                        <li><button class="list-group-item" type="button">Action</button></li>
-                        <li><button class="list-group-item" type="button">Another action</button></li>
-                        <li><button class="list-group-item" type="button">Something else here</button></li>
+                    <ul class="mt-1">
+                        <li class="list-group-item subcategoria"><a>Action</a></li>
+                        <li class="list-group-item subcategoria"><a>Another action</a></li>
+                        <li class="list-group-item subcategoria"><a>Something else here</a></li>
                     </ul>
                 </div>
             </li>
@@ -68,21 +68,24 @@
             <i class="bi bi-list"></i>
           </button>
         </div>
-        <div class="listado-productos">
-            {%for producto in productos%}
-                <div class="card" style="width: 18rem;">
-                    <img src="../static/img/productos/{{ producto.imagen }}" class="card-img-top" alt="{{ producto.nombre }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ producto.nombre }}</h5>
-                        <p class="card-text">Precio: ${{ producto.price }}</p>
-                        {% if producto.id %}
-                        <a href="comprar/{{ producto.id }}" class="btn btn-success"> Comprar</a>
-                        {% endif %}
-                    </div>
-                </div>
-
-            {%endfor%}
+        <div class="listado-productos" id="productList">
+    {% for producto in productos %}
+    <div class="card"
+         style="width: 16rem;"
+         data-name="{{ producto.nombre }}"
+         data-price="{{ producto.price }}">
+        <img src="../static/img/productos/{{ producto.imagen }}" class="card-img-top" alt="{{ producto.nombre }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="card-text">Precio: ${{ producto.price }}</p>
+            {% if producto.id %}
+            <a href="comprar/{{ producto.id }}" class="btn btn-success">Comprar</a>
+            {% endif %}
+            </div>
         </div>
+            {% endfor %}
+        </div>
+
     </div>
 </div>
 
@@ -104,5 +107,42 @@
         });
     }
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const orderBySelect = document.getElementById("orderBy");
+        const productList = document.getElementById("productList");
+
+        orderBySelect.addEventListener("change", function () {
+            const orderBy = this.value;
+            const products = Array.from(productList.children);
+
+            // Ordenar productos según el criterio seleccionado
+            products.sort((a, b) => {
+                const nameA = a.dataset.name.toLowerCase();
+                const nameB = b.dataset.name.toLowerCase();
+                const priceA = parseFloat(a.dataset.price);
+                const priceB = parseFloat(b.dataset.price);
+
+                switch (orderBy) {
+                    case "name-asc": // Nombre Z -> A
+                        return nameB.localeCompare(nameA);
+                    case "name-desc": // Nombre A -> Z
+                        return nameA.localeCompare(nameB);
+                    case "price-asc": // Precio: Menor a Mayor
+                        return priceA - priceB;
+                    case "price-desc": // Precio: Mayor a Menor
+                        return priceB - priceA;
+                    default:
+                        return 0;
+                }
+            });
+
+            // Actualizar el DOM con los productos ordenados
+            productList.innerHTML = "";
+            products.forEach(product => productList.appendChild(product));
+        });
+    });
+</script>
+
 </body>
 </html>

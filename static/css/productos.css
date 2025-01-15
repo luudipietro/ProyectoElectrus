@@ -4,9 +4,9 @@
 }
 
 body {
-    background: linear-gradient(to bottom, var(--primary-green), var(--white));
+    background-color: var(--white));
     color: var(--primary-green);
-    padding-top: 58px; /* Ajusta este valor según la altura del navbar */
+    padding-top: 4rem; /* Ajusta este valor según la altura del navbar */
 
 }
 
@@ -51,19 +51,18 @@ body {
     color: #238f39 !important;
 }
 body{
-    padding-top:3rem;
+    padding-top:4rem;
 }
 }
 
 @media(max-width:600px){
 body{
-    padding-top:5rem;
+    padding-top:4rem;
 }}
-@media(max-width:462px){
+@media(max-width:479px){
 body{
     padding-top:8rem;
-}}
-
+}
 }
 footer {
     background-color: var(--primary-green);
@@ -73,7 +72,8 @@ footer {
 /* Configuración base */
 .contenedor-categorias {
     position: relative;
-    max-width: 300px; /* Ajusta según el diseño */
+
+    width: 35%; /* Ajusta según el diseño */
 }
 
 .collapse-categorias {
@@ -91,22 +91,56 @@ footer {
     transition: all 0.4s ease; /* Ajusta la duración para movimientos generales */
 }
 
-button {
+.contenedor-categorias button {
     transition: transform 0.4s ease, margin 0.4s ease; /* Suaviza el movimiento y los márgenes */
 }
+.categoria{
+    padding:0 0 1rem 1rem !important;
+    }
+
+
+
+.subcategoria{
+    padding: 0.5rem 0 0 2rem !important;
+}
+.contenedor-categorias ul{
+    padding:0;
+    }
 
 button[aria-expanded="true"] .arrow {
     transform: rotate(180deg); /* Gira la flecha hacia arriba */
     transition: 0.4s linear;
 }
 
+.filtros{
+    justify-content:flex-end;
+}
+select{
+    max-width:25%;
+}
+
 .contenedor-grande{
-    padding-top:2rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: space-between;
 }
+i{
+    color: var(--primary-green);
+}
+
+.contenedor-productos{
+    padding-left: 1rem;
+    padding-right:1rem;
+    margin-left:1rem;
+    border-left: 1px solid var(--primary-green);
+}
 
 .listado-productos{
+
 display:flex;
+justify-content:space-between;
 flex-wrap:wrap;
+gap:2rem;
+padding-top:2rem;
 }
