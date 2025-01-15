@@ -6,7 +6,7 @@
 body {
     background: linear-gradient(to bottom, var(--primary-green), var(--white));
     color: var(--primary-green);
-    padding-top: 58px; /* Ajusta este valor según la altura del navbar */
+    padding-top: 1rem; /* Ajusta este valor según la altura del navbar */
 
 }
 
@@ -52,9 +52,19 @@ body {
     color: #238f39 !important;
 }
 body{
-    padding-top:100px
+    padding-top:3rem;
 }
 }
+
+@media(max-width:600px){
+body{
+    padding-top:5rem;
+}}
+@media(max-width:462px){
+body{
+    padding-top:8rem;
+}}
+
 
 
 

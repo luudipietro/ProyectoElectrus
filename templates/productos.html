@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -21,7 +22,7 @@
 <!-- Navbar -->
 {% include 'navbar.html'%}
 
-<div class="container">
+<div class="container contenedor-grande">
     <div class="contenedor-categorias">
         <ul class="list-group">
             {% for categoria in categorias %}
@@ -39,7 +40,7 @@
                     {{ categoria.nombre }}
 
                 </button>
-                <div class="collapse" id="categoria-{{categoria.id}}">
+                <div class="collapse-categorias" id="categoria-{{categoria.id}}">
                     <ul class="list-group mt-2">
                         <li><button class="list-group-item" type="button">Action</button></li>
                         <li><button class="list-group-item" type="button">Another action</button></li>
@@ -51,7 +52,37 @@
         </ul>
     </div>
     <div class="contenedor-productos">
-        <!-- Aquí puedes añadir productos relacionados -->
+        <div class="d-flex align-items-center filtros">
+
+          <select id="orderBy" class="form-select form-select-sm me-3">
+            <option value="" selected disabled>Ordenar Por</option>
+            <option value="name-desc">Nombre A->Z</option>
+            <option value="name-asc">Nombre Z->A</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+            <option value="price-asc">Precio: Menor a Mayor</option>
+          </select>
+          <button class="btn btn-outline-secondary me-1" id="gridView">
+            <i class="bi bi-grid"></i>
+          </button>
+          <button class="btn btn-outline-secondary" id="listView">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+        <div class="listado-productos">
+            {%for producto in productos%}
+                <div class="card" style="width: 18rem;">
+                    <img src="../static/img/productos/{{ producto.imagen }}" class="card-img-top" alt="{{ producto.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">Precio: ${{ producto.price }}</p>
+                        {% if producto.id %}
+                        <a href="comprar/{{ producto.id }}" class="btn btn-success"> Comprar</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            {%endfor%}
+        </div>
     </div>
 </div>
 

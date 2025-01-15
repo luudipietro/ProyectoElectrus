@@ -45,12 +45,25 @@ body {
     color: #238f39 !important;
 }
 
-/* Cuando el navbar está colapsado */
 @media(max-width:991px){
 .navbar-collapse.show .nav-link:hover {
     background-color: transparent !important;
     color: #238f39 !important;
 }
+body{
+    padding-top:3rem;
+}
+}
+
+@media(max-width:600px){
+body{
+    padding-top:5rem;
+}}
+@media(max-width:462px){
+body{
+    padding-top:8rem;
+}}
+
 }
 footer {
     background-color: var(--primary-green);
@@ -63,7 +76,7 @@ footer {
     max-width: 300px; /* Ajusta según el diseño */
 }
 
-.collapse {
+.collapse-categorias {
     transition: height 0.4s ease; /* Aumenta el tiempo a 1.2 segundos */
     height: 0; /* Altura inicial colapsada */
     overflow: hidden; /* Oculta contenido */
@@ -85,4 +98,15 @@ button {
 button[aria-expanded="true"] .arrow {
     transform: rotate(180deg); /* Gira la flecha hacia arriba */
     transition: 0.4s linear;
+}
+
+.contenedor-grande{
+    padding-top:2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listado-productos{
+display:flex;
+flex-wrap:wrap;
 }
