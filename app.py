@@ -40,5 +40,13 @@ def productos():
 @app.route('/colapsable')
 def colapsable():
     return render_template('components/base.html')
+
+
+@app.route('/producto/<int:id>')
+def producto(id):
+    producto = [
+        {"id": 1, "nombre": "Producto 1", "price": "15000", "imagen": "product1.jpg"}
+    ]
+    return render_template('producto.html', producto=producto)
 if __name__ == '__main__':
     app.run(debug=True)

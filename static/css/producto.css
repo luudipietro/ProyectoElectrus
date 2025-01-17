@@ -1,0 +1,17 @@
+.contenedor-producto{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.imagenes-abajo{
+    display:flex;
+    flex-direction:row;
+}
+
+.activa{
+    max-width:20rem;
+}
+.imagenes-abajo img{
+    max-width:5rem;
+}
