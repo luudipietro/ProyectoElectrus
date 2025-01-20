@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid"> <!-- container ocupa ancho fijo, container-fluid toda la pantalla-->
         <!-- Brand a la izquierda -->
-        <a class="navbar-brand me-auto px-3" href="#">
+        <a href="{{ url_for('inicio') }}" class="navbar-brand me-auto px-3" >
             <img src="../static/img/logo_fondo_invisible.png" alt="Electrus" class="img-fluid">
         </a>
 
@@ -21,27 +21,27 @@
             </form>
 
             <!-- Botones a la derecha -->
-            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Carrito</a>
+            <ul class="navbar-nav ms-auto py-2">
+                <li class="nav-item px-2">
+                    <a href="{{ url_for('carrito') }}" class="nav-link"> <i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" id="dropdownProductos2">
                         Productos
                     </button>
 
-                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><button class="dropdown-item" type="button">Action</button></li>
-                        <li><button class="dropdown-item" type="button">Another action</button></li>
-                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    <ul class="dropdown-menu dropdown-menu-lg-end mt-0 border-top-0">
+                        <li><a href="{{ url_for('productos') }}" class="dropdown-item" type="button">Todos</a></li>
+                        <li><a class="dropdown-item" type="button">Heladeras</a></li>
+                        <li><a class="dropdown-item" type="button">Cocinas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contacto</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    <button type="button" class="btn btn-secondary dropdown-toggle nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" id="dropdownProductos">
                         Mi Cuenta
                     </button>
 
@@ -55,3 +55,16 @@
         </div>
     </div>
 </nav>
+
+<script>
+    // Selecciona el botón del dropdown
+    const dropdownButton = document.getElementById('dropdownProductos');
+    const dropdownButton2 = document.getElementById('dropdownProductos2');
+    // Detecta cuando el menú se cierra
+    dropdownButton.addEventListener('hidden.bs.dropdown', function () {
+        dropdownButton.blur(); // Elimina el foco del botón
+    });
+    dropdownButton2.addEventListener('hidden.bs.dropdown', function () {
+        dropdownButton2.blur();
+    });
+</script>

@@ -28,7 +28,7 @@ def productos():
 
     ]
     productos = [
-        {"id": 1, "nombre": "Producto 1", "price": "15000", "imagen": "product1.jpg"},
+        {"id": 1, "nombre": "Placa de Video Zotac GeForce RTX 4060 Ti 16GB GDDR6 AMP", "price": "662130", "imagen": "placa2.jpg"},
         {"id": 2, "nombre": "Producto 2", "price": "3000", "imagen": "product2.jpg"},
         {"id": 3, "nombre": "Producto 3", "price": "150000", "imagen": "product3.jpg"},
         {"id": 4, "nombre": "Producto 5", "price": "245000", "imagen": "product5.jpg"},
@@ -37,8 +37,8 @@ def productos():
 
     ]
     return render_template('productos.html', categorias=categorias, productos=productos)
-@app.route('/colapsable')
-def colapsable():
+@app.route('/carrito')
+def carrito():
     return render_template('components/base.html')
 
 
