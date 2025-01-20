@@ -74,3 +74,12 @@ flex-wrap:wrap;
 gap:2rem;
 padding-top:2rem;
 }
+.card img{
+    height: 169px;
+}
+
+.card-body{
+    flex-direction:row !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

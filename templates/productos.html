@@ -80,10 +80,10 @@
             <h5 class="card-title">{{ producto.nombre }}</h5>
             <p class="card-text">Precio: ${{ producto.price }}</p>
             {% if producto.id %}
-            <a href="comprar/{{ producto.id }}" class="btn btn-success">Comprar</a>
+                <a href="producto/{{ producto.id }}" class="btn btn-success">Comprar</a>
             {% endif %}
-            </div>
         </div>
+    </div>
             {% endfor %}
         </div>
 
