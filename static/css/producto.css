@@ -1,17 +1,39 @@
-.contenedor-producto{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
+body{
+    background-color: #eeeeee !important;
+}
+.container{
+    padding-top: 4rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    border-radius: 12px;
+    background-color: white !important;
+}
+
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.precios{
+    flex:1;
+    padding-left:5rem !important;
+}
+
+.precios button{
+    font-size: 18px;
+}
+
+.precios p{
+    font-size: 18px;
+}
+
+
+
+.producto{
+    display: flex;
 
 }
 
-.imagenes-abajo{
-    display:flex;
-    flex-direction:row;
-}
-
-.activa{
-    max-width:20rem;
-}
-.imagenes-abajo img{
-    max-width:5rem;
+.imagenes{
+    flex:1;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{producto.nombre}}</title>
+    <title>{{product.nombre}}</title>
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/producto.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,27 +14,65 @@
 <body>
 {%include 'navbar.html'%}
 
-    <div class="container contenedor-producto">
+
+<div class="container mt-5">
+    <div class="producto">
         <div class="imagenes">
-            <img src="../static/img/productos/product1.jpg" alt="producto1" class="activa">
-            <div class="imagenes-abajo">
-                <button><img src="../static/img/productos/product1.jpg" alt=""></button>
-                <button><img src="../static/img/productos/product1.jpg" alt=""></button>
-                <button><img src="../static/img/productos/product1.jpg" alt=""></button>
-                <button><img src="../static/img/productos/product1.jpg" alt=""></button>
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for image in product.images %}
+                    <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                        <img src="../static/img/productos/{{image}}" class="d-block w-100" alt="Product Image">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-        <div class="datos-producto">
-            <h1>{{producto[0].nombre}}</h1>
-            <h2>{{producto[0].price}}</h2>
+        <div class="precios">
+            <h1>{{ product.name }}</h1>
+            <h3 class="text-success">Precio especial: ${{ "{:,.0f}".format(product.price_special) }}</h3>
+            <p class="text-muted">Precio de lista: ${{ "{:,.0f}".format(product.price_list) }}</p>
+            <p>12 cuotas de: ${{ "{:,.0f}".format(product.installment_price) }}</p>
+            <p><strong>Garantía:</strong> {{ product.warranty }}</p>
+            <p><strong>Stock:</strong> {{ product.stock_status }}</p>
+            <p><strong>Envío:</strong> {{ product.shipping }}</p>
+            <button class="btn btn-danger">Agregar al Carrito</button>
         </div>
-
-
-
     </div>
-
-
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h5>Características Generales</h5>
+            <ul class="list-group">
+                {% for key, value in product.features.items() %}
+                <li class="list-group-item">
+                    <strong>{{ key }}:</strong> {{ value }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h5>Conectividad</h5>
+            <ul class="list-group">
+                {% for key, value in product.connectivity.items() %}
+                <li class="list-group-item">
+                    <strong>{{ key }}:</strong> {{ value }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 
     {%include 'footer.html'%}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

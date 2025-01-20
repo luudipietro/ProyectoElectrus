@@ -44,9 +44,29 @@ def colapsable():
 
 @app.route('/producto/<int:id>')
 def producto(id):
-    producto = [
-        {"id": 1, "nombre": "Producto 1", "price": "15000", "imagen": "product1.jpg"}
-    ]
-    return render_template('producto.html', producto=producto)
+    product = {
+        "name": "Placa de Video Zotac GeForce RTX 4060 Ti 16GB GDDR6 AMP",
+        "price_special": 662130,
+        "price_list": 926963,
+        "installment_price": 77247,
+        "warranty": "12 meses",
+        "stock_status": "Disponible",
+        "shipping": "Envíos a todo el país",
+        "features": {
+            "Tipo": "pcie",
+            "Chipset GPU": "RTX 4060 Ti",
+            "Entrada Video": "No",
+            "Puente Para Sli/crossfirex": "-",
+            "Doble Puente": "No",
+        },
+        "connectivity": {
+            "VGA": 0,
+            "DVI Digital": 0,
+            "HDMI": 1,
+            "DisplayPorts": 3,
+        },
+        "images": ["placa1.jpg", "placa2.jpg","placa3.jpg", "placa4.jpg", "placa5.jpg"]
+    }
+    return render_template('producto.html', product=product)
 if __name__ == '__main__':
     app.run(debug=True)
