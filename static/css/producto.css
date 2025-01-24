@@ -10,7 +10,10 @@ body{
 }
 
 .carousel-item img {
-    height: 400px;
+
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
     object-fit: cover;
 }
 
@@ -27,7 +30,13 @@ body{
     font-size: 18px;
 }
 
-
+.descripcion{
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
 
 .producto{
     display: flex;
@@ -36,4 +45,34 @@ body{
 
 .imagenes{
     flex:1;
+}
+
+.features{
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media(max-width:991px){
+.producto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+}
+.precios{
+    padding:0px !important;
+
+}
+.descripcion{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.features{
+    padding: 0px;
+}
+.list-group{
+    padding-bottom:1rem !important;
+}
+
 }

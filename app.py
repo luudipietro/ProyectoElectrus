@@ -75,7 +75,8 @@ def producto(id):
             "HDMI": 1,
             "DisplayPorts": 3,
         },
-        "images": ["placa1.jpg", "placa2.jpg","placa3.jpg", "placa4.jpg", "placa5.jpg"]
+        "images": ["placa1.jpg", "placa2.jpg","placa3.jpg", "placa4.jpg", "placa5.jpg"],
+        "description":"La NVIDIA GeForce RTX 4060 Ti es una tarjeta gráfica de gama media-alta de la generación Ada Lovelace, diseñada para ofrecer un excelente rendimiento en gaming y creación de contenido con tecnologías avanzadas de NVIDIA, como el trazado de rayos (Ray Tracing) y la IA impulsada por DLSS 3."
     }
     return render_template('producto.html', product=product)
 if __name__ == '__main__':

@@ -24,33 +24,39 @@
 {% include 'navbar.html'%}
 
 <div class="container-fluid contenedor-grande">
-    <div class="contenedor-categorias">
-        <ul >
-            {% for categoria in categorias %}
-            <li class="list-group-item categoria">
-                <button
-                    class="btn p-0 fw-semibold text-start"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#categoria-{{categoria.id}}"
-                    aria-expanded="false"
-                    aria-controls="categoria-{{categoria.id}}"
-                    onclick="closeOtherMenus('categoria-{{categoria.id}}')">
+        <div class="contenedor-categorias">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoriasNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-angle-down arrow"></i> Categorias</span>
+            </button>
+            <div class="collapse navbar-collapse" id="categoriasNav">
+            <ul >
+                {% for categoria in categorias %}
+                <li class="list-group-item categoria">
+                    <button
+                        class="btn p-0 fw-semibold text-start"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#categoria-{{categoria.id}}"
+                        aria-expanded="false"
+                        aria-controls="categoria-{{categoria.id}}"
+                        onclick="closeOtherMenus('categoria-{{categoria.id}}')">
 
-                    <i class="fa-solid fa-angle-down arrow"></i>
-                    {{ categoria.nombre }}
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                        {{ categoria.nombre }}
 
-                </button>
-                <div class="collapse-categorias" id="categoria-{{categoria.id}}">
-                    <ul class="mt-1">
-                        <li class="list-group-item subcategoria"><a>Action</a></li>
-                        <li class="list-group-item subcategoria"><a>Another action</a></li>
-                        <li class="list-group-item subcategoria"><a>Something else here</a></li>
-                    </ul>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
+                    </button>
+                    <div class="collapse-categorias" id="categoria-{{categoria.id}}">
+                        <ul class="mt-1">
+                            <li class="list-group-item subcategoria"><a>Action</a></li>
+                            <li class="list-group-item subcategoria"><a>Another action</a></li>
+                            <li class="list-group-item subcategoria"><a>Something else here</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <div class="contenedor-productos">
         <div class="d-flex align-items-center filtros">

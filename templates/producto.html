@@ -48,10 +48,14 @@
             <button class="btn btn-danger">Agregar al Carrito</button>
         </div>
     </div>
-    <div class="row mt-4">
+    <div class="descripcion">
+        <h2>Descripcion</h2>
+        <p>{{product.description}}</p>
+    </div>
+    <div class="row features">
         <div class="col-md-6">
             <h5>Características Generales</h5>
-            <ul class="list-group">
+            <ul class="list-group list-group-flush">
                 {% for key, value in product.features.items() %}
                 <li class="list-group-item">
                     <strong>{{ key }}:</strong> {{ value }}
@@ -61,7 +65,7 @@
         </div>
         <div class="col-md-6">
             <h5>Conectividad</h5>
-            <ul class="list-group">
+            <ul class="list-group list-group-flush">
                 {% for key, value in product.connectivity.items() %}
                 <li class="list-group-item">
                     <strong>{{ key }}:</strong> {{ value }}
