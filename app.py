@@ -28,7 +28,7 @@ def productos():
 
     ]
     productos = [
-        {"id": 1, "nombre": "Placa de Video Zotac GeForce RTX 4060 Ti 16GB GDDR6 AMP", "price": "662130", "imagen": "placa2.jpg"},
+        {"id": 1, "nombre": "Placa de Video Zotac GeForce RTX 4060 Ti 16GB GDDR6 AMP", "price": "662130", "imagen": "placa3.jpg"},
         {"id": 2, "nombre": "Producto 2", "price": "3000", "imagen": "product2.jpg"},
         {"id": 3, "nombre": "Producto 3", "price": "150000", "imagen": "product3.jpg"},
         {"id": 4, "nombre": "Producto 5", "price": "245000", "imagen": "product5.jpg"},
@@ -39,7 +39,17 @@ def productos():
     return render_template('productos.html', categorias=categorias, productos=productos)
 @app.route('/carrito')
 def carrito():
-    return render_template('components/base.html')
+    productos = [
+        {"id": 1, "nombre": "Placa de Video Zotac GeForce RTX 4060 Ti 16GB GDDR6 AMP", "price": "662130",
+         "imagen": "placa3.jpg"},
+        {"id": 2, "nombre": "Producto 2", "price": "3000", "imagen": "product2.jpg"},
+        {"id": 3, "nombre": "Producto 3", "price": "150000", "imagen": "product3.jpg"},
+        {"id": 4, "nombre": "Producto 5", "price": "245000", "imagen": "product5.jpg"},
+        {"id": 4, "nombre": "Producto 6", "price": "19000", "imagen": "product6.jpg"},
+        {"id": 4, "nombre": "Producto 7", "price": "19000", "imagen": "product6.jpg"},
+
+    ]
+    return render_template('carrito.html', carrito=productos)
 
 
 @app.route('/producto/<int:id>')

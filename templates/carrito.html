@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/carrito.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {%include 'navbar.html'%}
+
+    <div class="container grande">
+
+        <h2>Carrito de Compras</h2>
+        <div class="vaciar-carrito">
+            <h5><i class="fa-solid fa-trash"></i> Vaciar carrito</h5>
+        </div>
+        <div class="container interior">
+            <h3>Productos</h3>
+            <div class="carrito-productos">
+                {% for producto in carrito%}
+                  <div class="carta">
+                    <img class="carta-img" src="../static/img/productos/{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                    <div class="carta-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <div class="counter">
+                            <button class="decrement">-</button>
+                            <span class="value">1</span>
+                            <button class="increment">+</button>
+                        </div>
+                        <div class="precio-carrito">
+                            <h5 class="card-price">${{ producto.price }}</h5>
+                            <a class="delete-btn"><i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                {%endfor%}
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    {%include 'footer.html'%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+body{
+    background-color: #eeeeee !important;
+}
+.interior{
+    padding: 2rem !important;
+    background-color: white !important;
+}
+
+h2, h3{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black !important;
+}
+
+.vaciar-carrito{
+    padding-top:1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.carrito-productos{
+    padding-top:2rem;
+}
+.carta{
+    display:flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+.carta-img{
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover; /* Ajusta la imagen para mantener proporciones */
+}
