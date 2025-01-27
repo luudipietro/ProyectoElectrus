@@ -1,5 +1,6 @@
 body{
     background-color: #eeeeee !important;
+    padding-top:6rem;
 }
 .interior{
     padding: 2rem !important;
@@ -21,12 +22,46 @@ h2, h3{
 }
 .carta{
     display:flex;
+    border: 1px solid black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items:center;
 
 }
 .carta-img{
     width: 200px;
+    padding: 2rem !important;
     height: auto;
     border-radius: 5px;
     object-fit: cover; /* Ajusta la imagen para mantener proporciones */
+}
+
+.carta-body{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem;
+
+}
+
+.counter{
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    gap: 1rem;
+}
+@media(max-width: 800px){
+.carta{
+    padding:1rem;
+}
+.carta, .carta-body{
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.carta-body{
+    padding-right:0;
+}
+.card-title{
+    text-align: center;
+}
 }

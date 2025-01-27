@@ -3,6 +3,7 @@
 .contenedor-categorias {
     position: relative;
 
+
     width: 35%; /* Ajusta según el diseño */
 }
 
@@ -11,6 +12,7 @@
     height: 0; /* Altura inicial colapsada */
     overflow: hidden; /* Oculta contenido */
 }
+
 
 .collapse.show {
     height: auto; /* Altura automática al expandir */
@@ -25,8 +27,8 @@
     transition: transform 0.4s ease, margin 0.4s ease; /* Suaviza el movimiento y los márgenes */
 }
 .categoria{
-    padding:0 0 1rem 1rem !important;
-    }
+    padding:1rem 0 0 1rem !important;
+ }
 
 
 

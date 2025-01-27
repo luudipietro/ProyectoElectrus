@@ -23,7 +23,7 @@
 <!-- Navbar -->
 {% include 'navbar.html'%}
 
-<div class="container-fluid contenedor-grande">
+<div class="container contenedor-grande">
         <div class="contenedor-categorias">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoriasNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,12 +68,7 @@
             <option value="price-desc">Precio: Mayor a Menor</option>
             <option value="price-asc">Precio: Menor a Mayor</option>
           </select>
-          <button class="btn btn-outline-secondary me-1" id="gridView">
-            <i class="bi bi-grid"></i>
-          </button>
-          <button class="btn btn-outline-secondary" id="listView">
-            <i class="bi bi-list"></i>
-          </button>
+          
         </div>
         <div class="listado-productos" id="productList">
     {% for producto in productos %}
@@ -112,16 +107,16 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
-    function closeOtherMenus(activeId) {
-        // Encuentra todos los elementos con la clase 'collapse'
-        document.querySelectorAll('.collapse').forEach(collapse => {
-            // Si el elemento no es el que está siendo activado, se cierra
-            if (collapse.id !== activeId) {
-                const bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse, { toggle: false });
-                bsCollapse.hide();
-            }
-        });
-    }
+   function closeOtherMenus(activeId) {
+    // Encuentra todos los submenús dentro del contenedor de categorías
+    document.querySelectorAll('.collapse-categorias').forEach(collapse => {
+        // Si el submenú no es el activado, se cierra
+        if (collapse.id !== activeId) {
+            const bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse, { toggle: false });
+            bsCollapse.hide();
+        }
+    });
+}
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
