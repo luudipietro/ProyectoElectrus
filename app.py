@@ -1,11 +1,13 @@
 
-
+from config import Config
 from flask_migrate import Migrate
 from flask import Flask, render_template
 
 from database import db
+from models import Producto
 
 app = Flask(__name__)
+app.config.from_object(Config)  # Cargar la configuración
 
 @app.route('/')
 def inicio():
@@ -72,15 +74,6 @@ def producto(id):
     }
     return render_template('producto.html', product=product)
 
-#CONFIG BASE DATOS
-USER_DB = 'postgres'
-PASS_DB ='dipi1138'
-URL_DB = 'localhost'
-NAME_DB = 'electrus'
-FULL_URL_DB = f'postgresql://{USER_DB}:{PASS_DB}@{URL_DB}/{NAME_DB}'
-
-app.config['SQLALCHEMY_DATABASE_URI']=FULL_URL_DB
-app.config['SQL_ALCHEMY_TRACK_MODIFICATIONS'] =False
 
 #inicializacion del objeto db de sqlachemy
 db.init_app(app)
