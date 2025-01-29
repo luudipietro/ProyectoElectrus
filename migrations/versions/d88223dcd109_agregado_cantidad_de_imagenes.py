@@ -1,8 +1,8 @@
-"""Primera migración
+"""agregado cantidad de imagenes
 
-Revision ID: ec1fdd924823
+Revision ID: d88223dcd109
 Revises: 
-Create Date: 2025-01-28 17:17:33.881997
+Create Date: 2025-01-29 12:56:14.105109
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ec1fdd924823'
+revision = 'd88223dcd109'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -82,6 +82,7 @@ def upgrade():
     sa.Column('precio', sa.Numeric(precision=10, scale=2), nullable=False),
     sa.Column('stock', sa.Integer(), nullable=False),
     sa.Column('peso', sa.Numeric(precision=10, scale=2), nullable=True),
+    sa.Column('imagenes', sa.Integer(), nullable=True),
     sa.Column('dimensiones', sa.String(length=50), nullable=True),
     sa.Column('marca', sa.String(length=250), nullable=True),
     sa.Column('id_subcategoria', sa.Integer(), nullable=False),

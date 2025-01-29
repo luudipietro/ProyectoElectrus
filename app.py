@@ -13,7 +13,8 @@ app.config.from_object(Config)  # Cargar la configuración
 def inicio():
     productos = Producto.query.all()
     total_productos = Producto.query.count()
-    app.logger.debug(f'Listado de productos: {productos}')
+    for producto in productos:
+        app.logger.debug(f'producto: {producto}')
     return render_template('index.html', productos=productos, total_productos=total_productos)
 @app.route('/productos')
 def productos():
@@ -74,6 +75,16 @@ def producto(id):
     }
     return render_template('producto.html', product=product)
 
+@app.template_filter('format_precio')
+def format_precio(value):
+    """ Formatea el número con puntos como separador de miles y coma para los decimales. """
+    try:
+        return "{:,.2f}".format(float(value)).replace(",", "X").replace(".", ",").replace("X", ".")
+    except (ValueError, TypeError):
+        return value  # Retorna el valor sin formato si hay un error
+
+# Registro del filtro
+app.jinja_env.filters['format_precio'] = format_precio
 
 #inicializacion del objeto db de sqlachemy
 db.init_app(app)

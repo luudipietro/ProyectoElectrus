@@ -82,6 +82,7 @@ class Producto(db.Model):
     precio = Column(Numeric(10, 2), nullable=False)
     stock = Column(Integer, nullable=False)
     peso = Column(Numeric(10, 2))
+    imagenes = Column(Integer)
     dimensiones = Column(String(50))
     marca = Column(String(250))
     id_subcategoria = Column(Integer, ForeignKey('subcategoria.id'), nullable=False)
@@ -89,3 +90,19 @@ class Producto(db.Model):
     # Relaciones con carrito y órdenes
     detalles_carrito = db.relationship('DetalleCarrito', backref='producto', lazy=True)
     detalles_orden = db.relationship('DetalleOrden', backref='producto', lazy=True)
+
+class Atributo(db.Model):
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String(250), nullable=False)
+    tipo_dato = Column(String(250), nullable=False)
+
+class AtributoCategoria(db.Model):
+    id = Column(Integer, primary_key=True)
+    id_atributo = Column(Integer, ForeignKey('atributo.id'), nullable=False)
+    id_categoria = Column(Integer, ForeignKey('categoria.id'), nullable=False)
+
+class ValorAtributo(db.Model):
+    id = Column(Integer, primary_key=True)
+    id_producto = Column(Integer, ForeignKey('producto.id'), nullable=False)
+    id_atributo = Column(Integer, ForeignKey('atributo.id'), nullable=False)
+    valor = Column(String(250), nullable=False)
